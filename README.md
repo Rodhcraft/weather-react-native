@@ -23,5 +23,5 @@ git pull  --> fusiona todos los cambios que se han hecho en el repositorio remot
 
 git commit -m "Commit message"  --> (Paso 1) Prepara para subir los cambios al repositorio, agrega el mensaje que quieras.
 
-git push  origin <master> --> (Paso 2) confirma todos los cambios y mensaje de commit y sube todo al repositorio
+git push  origin master --> (Paso 2) confirma todos los cambios y mensaje de commit y sube todo al repositorio
   
