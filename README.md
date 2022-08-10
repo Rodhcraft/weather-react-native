@@ -20,3 +20,8 @@ git clone EnlaceDelCoso --> se usa para copiar un repositorio.
 git status -->  para ver los cambios que se hay en el repositorio.
 
 git pull  --> fusiona todos los cambios que se han hecho en el repositorio remoto con el directorio de trabajo local.
+
+git commit -m "Commit message"  --> (Paso 1) Prepara para subir los cambios al repositorio, agrega el mensaje que quieras.
+
+git push  origin <master> --> (Paso 2) confirma todos los cambios y mensaje de commit y sube todo al repositorio
+  
