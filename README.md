@@ -1,7 +1,7 @@
 # weather-react-native
 Project for React Native class
 
-Configurar Github:
+# Configurar Github:
 
 git config --global user.name "nombre de usuario" --> configura el nombre de usuario para usar git.
 
@@ -13,7 +13,7 @@ git config --global user.email tuemail@ejemplo.com --> configura el email para u
 
 // git config --local user.email tuemail@ejemplo.com
 
-Comandos: 
+# Comandos: 
 
 git clone EnlaceDelCoso --> se usa para copiar un repositorio.
 
