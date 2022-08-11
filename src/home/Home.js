@@ -10,13 +10,6 @@ import {
     Image
 } from 'react-native';
 
-// for weather api
-//var weather = require('openweather-apis');
-//weather.setLang('es');
-//weather.setAPPID('d3a90a80843a6dd8d6355e9ce4e52619');
-//weather.setUnits('metric');
-
-
 const API_KEY = {
     key: '85ffa1c9e99c109d3209610d83799428' //open weather key
 }
