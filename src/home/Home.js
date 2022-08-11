@@ -1,33 +1,78 @@
 import React from "react";
-import {Text, View, StyleSheet, TextInput, } from 'react-native';
+import {
+    Text, 
+    View, 
+    StyleSheet, 
+    TextInput, 
+    ToastAndroid,
+    Platform,
+    AlertIOS,
+    Image
+} from 'react-native';
 
-const api = {
-    key: 'd3a90a80843a6dd8d6355e9ce4e52619' //esta es la key de mi cuenta
+// for weather api
+//var weather = require('openweather-apis');
+//weather.setLang('es');
+//weather.setAPPID('d3a90a80843a6dd8d6355e9ce4e52619');
+//weather.setUnits('metric');
+
+
+const API_KEY = {
+    key: '85ffa1c9e99c109d3209610d83799428' //open weather key
 }
+const BASE_URL= "https://api.openweathermap.org"
+const lang = "es"
+const units = "metric" // metric for Celcius, imperial for Fahrenheit and empty for Kelvin
+
+var mainIcon = "01d"
+
 const Home = () => {
     
     return (
         <View style = {styles.container}>
             <View>
-                {/*Nombre de la cuidad*/}
+                {/*TODO: Nombre de la cuidad*/}
                 <Text>Hola que hace!</Text>
             </View>
             <View>
-                {/*Imagen*/}
+                {/*TODO: Imagen*/}
             </View>
             <View>
-                {/*Datos*/}
+                {/*TODO: Datos*/}
             </View>
             <View>
-                <TextInput 
+                <TextInput
                 placeholder = "Ingresa el nombre de la cuidad"
                 style = {styles.textInput}
-                />
+                onSubmitEditing = {(event) => {
+                    requestWeatherData(event.nativeEvent.text);
+                }} />
             </View>
+            <Image
+                style={styles.mainImageStyle}
+                source={{
+                    uri: `${BASE_URL}/img/w/${mainIcon}.png`,
+                }}
+            />
         </View>
     );
 
 };
+async function requestWeatherData(city){
+    const data = await fetch(`${BASE_URL}/data/2.5/weather?q=${city}&lang=${lang}&units=${units}&appid=${API_KEY.key}`)
+    .then(res => res.json());
+
+    //data
+    console.log(data);
+    console.log("API KEY: "+API_KEY.key);
+
+    // toast just for testing
+    if (Platform.OS === 'android') {
+        ToastAndroid.show(`${data['main']['temp']}`, ToastAndroid.SHORT)
+      } else {
+        AlertIOS.alert(city);
+      }
+}
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -42,6 +87,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         fontSize: 20,
         borderRadius: 25,
+        justifyContent: 'center'
     },
+
+    mainImageStyle: {
+        width: 100,
+        height: 100,
+        resizeMode: 'stretch',
+      },
 });
 export default Home; 
